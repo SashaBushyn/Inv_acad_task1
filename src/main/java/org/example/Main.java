@@ -3,8 +3,7 @@ package org.example;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Set;
-import java.util.stream.Collectors;
+
 
 public class Main {
   public static void main(String[] args) {
@@ -21,9 +20,10 @@ public class Main {
   }
 
   public static int arrayChallenge(String str) {
-    Set<String> uniqWords = Arrays.stream(str.split(" "))
+    String[] uniqWords = Arrays.stream(str.split(" "))
         .filter(word -> word.length() > 1)
-        .collect(Collectors.toSet());
+        .distinct()
+        .toArray(String[]::new);
 
     Map<String, Integer> wordsMap = new HashMap<>();
 
